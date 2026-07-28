@@ -1,8 +1,15 @@
 CREATE DATABASE IF NOT EXISTS geoDB;
 USE geoDB;
 
+CREATE TABLE IF NOT EXISTS region (
+    id INT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS departement (
     num VARCHAR(3) PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    prefecture VARCHAR(100) NOT NULL
+    prefecture VARCHAR(100) NOT NULL,
+    region_id INT,
+    FOREIGN KEY (region_id) REFERENCES region(id)
 );
